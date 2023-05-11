@@ -1,0 +1,30 @@
+C:\Users\rhodcille\C# code\bin\Debug\net7.0\C# code.exe
+C:\Users\rhodcille\C# code\bin\Debug\net7.0\C# code.deps.json
+C:\Users\rhodcille\C# code\bin\Debug\net7.0\C# code.runtimeconfig.json
+C:\Users\rhodcille\C# code\bin\Debug\net7.0\C# code.dll
+C:\Users\rhodcille\C# code\bin\Debug\net7.0\C# code.pdb
+C:\Users\rhodcille\C# code\obj\Debug\net7.0\C# code.csproj.AssemblyReference.cache
+C:\Users\rhodcille\C# code\obj\Debug\net7.0\C# code.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rhodcille\C# code\obj\Debug\net7.0\C# code.AssemblyInfoInputs.cache
+C:\Users\rhodcille\C# code\obj\Debug\net7.0\C# code.AssemblyInfo.cs
+C:\Users\rhodcille\C# code\obj\Debug\net7.0\C# code.csproj.CoreCompileInputs.cache
+C:\Users\rhodcille\C# code\obj\Debug\net7.0\C# code.dll
+C:\Users\rhodcille\C# code\obj\Debug\net7.0\refint\C# code.dll
+C:\Users\rhodcille\C# code\obj\Debug\net7.0\C# code.pdb
+C:\Users\rhodcille\C# code\obj\Debug\net7.0\C# code.genruntimeconfig.cache
+C:\Users\rhodcille\C# code\obj\Debug\net7.0\ref\C# code.dll
+C:\Users\rhodcille\Project\bin\Debug\net7.0\C# code.exe
+C:\Users\rhodcille\Project\bin\Debug\net7.0\C# code.deps.json
+C:\Users\rhodcille\Project\bin\Debug\net7.0\C# code.runtimeconfig.json
+C:\Users\rhodcille\Project\bin\Debug\net7.0\C# code.dll
+C:\Users\rhodcille\Project\bin\Debug\net7.0\C# code.pdb
+C:\Users\rhodcille\Project\obj\Debug\net7.0\C# code.csproj.AssemblyReference.cache
+C:\Users\rhodcille\Project\obj\Debug\net7.0\C# code.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rhodcille\Project\obj\Debug\net7.0\C# code.AssemblyInfoInputs.cache
+C:\Users\rhodcille\Project\obj\Debug\net7.0\C# code.AssemblyInfo.cs
+C:\Users\rhodcille\Project\obj\Debug\net7.0\C# code.csproj.CoreCompileInputs.cache
+C:\Users\rhodcille\Project\obj\Debug\net7.0\C# code.dll
+C:\Users\rhodcille\Project\obj\Debug\net7.0\refint\C# code.dll
+C:\Users\rhodcille\Project\obj\Debug\net7.0\C# code.pdb
+C:\Users\rhodcille\Project\obj\Debug\net7.0\C# code.genruntimeconfig.cache
+C:\Users\rhodcille\Project\obj\Debug\net7.0\ref\C# code.dll
