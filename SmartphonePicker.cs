@@ -49,33 +49,3 @@ class Program
             Console.WriteLine("4. Huawei");
             Console.WriteLine("0. Exit");
 
-            int choice = int.Parse(Console.ReadLine());
-
-            if (choice == 0)
-            {
-                exit = true;
-            }
-            else if (choice >= 1 && choice <= 4)
-            {
-                Console.WriteLine($"Available {smartphones[choice - 1].Brand} smartphones:");
-
-                for (int i = 0; i < smartphones.Length; i++)
-                {
-                    if (smartphones[i].Brand == smartphones[choice - 1].Brand)
-                    {
-                        Console.WriteLine($"{i + 1}. {smartphones[i].Model}");
-                    }
-                }
-
-                int modelChoice = int.Parse(Console.ReadLine());
-
-                Console.WriteLine(smartphones[modelChoice - 1]);
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice!");
-            }
-        } while (!exit);
-    }
-}
-
