@@ -41,13 +41,13 @@ class Program
             new SmartphonePicker("Samsung", "Galaxy S21 Ultra", "Android 11", "Red", 12, 256, 6.8, 41973),
             new SmartphonePicker("Samsung", "Galaxy Note 20", "Android 10", "Blue", 8, 256, 6.7, 49999),
             new SmartphonePicker("Samsung", "Galaxy A22 5G", "Android 10", "Yellow", 8, 128, 6.8, 25999),
-            new SmartphonePicker("Xiaomi", "Mi 11 Ultra", "Android 11", "Red", 12, 256, 6.81, 36364 ),
+            new SmartphonePicker("Xiaomi", "Mi 11 Ultra", "Android 11", "Red", 12, 256, 6.81, 36364),
             new SmartphonePicker("Xiaomi", "Redmi Note 10 Pro", "Android 11", "Blue", 6, 128, 6.67, 15999),
             new SmartphonePicker("Xiaomi", "Redmi Note 9", "Android 10", "Yellow", 6, 128, 6.56, 11999),
             new SmartphonePicker("Huawei", "Mate 40 Pro", "Android 11", "Red", 8, 256, 6.76, 49350),
             new SmartphonePicker("Huawei", "P30 Pro", "Android 10", "Blue", 8, 256, 6.58, 59999),
             new SmartphonePicker("Huawei", "P60 Pro", "Android 13", "Yellow", 8, 256, 6.58, 69999),
-            new SmartphonePicker("LG", "LG model", "Android 10", "Red", 8, 256, 6.78, 15000 ),
+            new SmartphonePicker("LG", "LG model", "Android 10", "Red", 8, 256, 6.78, 15000),
             new SmartphonePicker("LG", "LG V30+", "Android 7", "Blue", 4, 128, 6.0, 28990),
             new SmartphonePicker("LG", "LG G7 ThinQ", "Android 10", "Yellow", 4, 64, 6.1, 15990),
         };
@@ -83,14 +83,34 @@ class Program
 
             if (brandChoice >= 1 && brandChoice <= 5)
             {
-                Console.WriteLine($"Here are the available {smartphones[brandChoice - 1].Brand} smartphones with the preferred color '{preferredColor}':");
+                string selectedBrand = "";
+                switch (brandChoice)
+                {
+                    case 1:
+                        selectedBrand = "Apple";
+                        break;
+                    case 2:
+                        selectedBrand = "Samsung";
+                        break;
+                    case 3:
+                        selectedBrand = "Xiaomi";
+                        break;
+                    case 4:
+                        selectedBrand = "Huawei";
+                        break;
+                    case 5:
+                        selectedBrand = "LG";
+                        break;
+                }
+
+                Console.WriteLine($"Here are the available {selectedBrand} smartphones with the preferred color '{preferredColor}':");
 
                 int i = 1;
                 bool foundPreferredColor = false;
 
                 foreach (var smartphone in smartphones)
                 {
-                    if (smartphone.Brand == smartphones[brandChoice - 1].Brand && smartphone.Color.Equals(preferredColor, StringComparison.OrdinalIgnoreCase))
+                    if (smartphone.Brand == selectedBrand && smartphone.Color.Equals(preferredColor, StringComparison.OrdinalIgnoreCase))
                     {
                         Console.WriteLine($"{i}. {smartphone.Model}");
                         i++;
@@ -110,6 +130,10 @@ class Program
                     Console.WriteLine("Here are the specifications of your chosen phone:");
                     Console.WriteLine(smartphones[modelChoice - 1]);
                 }
+            }
+            else if (brandChoice == 6)
+            {
+                exit = true;
             }
             else
             {
