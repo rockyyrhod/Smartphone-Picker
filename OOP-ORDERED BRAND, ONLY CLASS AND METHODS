@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+
+public class OrderedBrand
+{
+    public string BrandType { get; }
+    public string Model { get; }
+    public string Color { get; }
+    public double TotalPrice { get; }
+    public int Quantity { get; }
+
+    public OrderedBrand (string brandType, string model, string color, double totalPrice, int quantity)
+    {
+        BrandType = brandType;
+        Model = model;
+        Color = color;
+        TotalPrice = totalPrice;
+        Quantity = quantity;
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        List<OrderedBrand> orders = new List<OrderedBrand>();
+
+        orders.Add(new OrderedBrand("Apple", "iPhone 14 Pro Max", "Red", 69990, 1));
+        orders.Add(new OrderedBrand("Samsung", "Galaxy S21 Ultra", "Yellow", 41973, 1));
+        orders.Add(new OrderedBrand("Xiaomi", "Redmi Note 10 Pro", "Blue", 15999, 3));
+
+        foreach (OrderedBrand order in orders)
+        {
+            PrintOrderDetails(order);
+        }
+    }
+
+    public static void PrintOrderDetails(OrderedBrand order)
+    {
+        string orderDetails = $"Order Details:\n" +
+                              $"Brand Type: {order.BrandType}\n" +
+                              $"Model: {order.Model}\n" +
+                              $"Color: {order.Color}\n" + 
+                              $"Total Price: ₱{order.TotalPrice}\n" +
+                              $"Quantity: {order.Quantity}\n";
+
+    }
+}
