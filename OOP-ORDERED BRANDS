@@ -6,18 +6,20 @@ public class OrderedBrand
     public string Model { get; set; }
     public string OS { get; set; }
     public string Color { get; set; }
+    public string Chipset { get; set; }
     public int RAM { get; set; }
     public int Storage { get; set; }
     public double ScreenSize { get; set; }
     public double Price { get; set; }
     public int Quantity { get; set; }
 
-    public OrderedBrand(string brand, string model, string os, string color, int ram, int storage, double screenSize, double price)
+    public OrderedBrand(string brand, string model, string os, string color, string chipset, int ram, int storage, double screenSize, double price)
     {
         Brand = brand;
         Model = model;
         OS = os;
         Color = color;
+        Chipset = chipset;
         RAM = ram;
         Storage = storage;
         ScreenSize = screenSize;
@@ -31,6 +33,6 @@ public class OrderedBrand
 
     public override string ToString()
     {
-        return $"Brand: {Brand}\nModel: {Model}\nOS: {OS}\nColor: {Color}\nRAM: {RAM} GB\nStorage: {Storage} GB\nScreen Size: {ScreenSize} inches\nPrice: ₱{Price}\n";
+        return $"Brand: {Brand}\nModel: {Model}\nOS: {OS}\nColor: {Color}\nChipset: {Chipset}\nRAM: {RAM} GB\nStorage: {Storage} GB\nScreen Size: {ScreenSize} inches\nPrice: ₱{Price}\n";
     }
 }
