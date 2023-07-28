@@ -2,6 +2,19 @@ using System;
 
 class Program
 {
+    public static void DisplayReceipt(Receipt receipt)
+    {
+        Console.WriteLine("\n---------- Receipt ----------");
+        Console.WriteLine($"Receipt Number: {receipt.ReceiptNumber}");
+        Console.WriteLine($"Date and Time: {receipt.DateTime}");
+        Console.WriteLine($"Mode of Payment: {receipt.MOP}");
+        Console.WriteLine("\n--- Purchased Smartphone ---");
+        Console.WriteLine(receipt.ChosenSmartphone);
+        Console.WriteLine($"Quantity: {receipt.Quantity}");
+        Console.WriteLine($"Total Price: P{receipt.GetTotalPrice()}");
+        Console.WriteLine("Thank you for buying from us, see you again!");
+    }
+
     static void Main(string[] args)
     {
         OrderedBrand[] smartphones = new OrderedBrand[]
@@ -21,18 +34,28 @@ class Program
             new OrderedBrand("Realme", "Realme 11 Pro", "Android 13","Red", "Mediatek MT6877V Dimensity 7050 (6 nm)", 8, 256, 6.7, 136450),
             new OrderedBrand("Realme", "Realme Narzo N53", "Android 13", "Blue", "Unisoc Tiger T612 (12 nm)", 6, 128, 6.74,12500),
             new OrderedBrand("Realme", "Realme GT Neo5 SE", "Android 13", "Yellow", "Snapdragon 7+ Gen 2 (4 nm)", 16, 512, 6.74,16445),
+            new OrderedBrand("Oppo", "Reno 10 Pro", "Android 13", "Red", "Snapdragon 778G 5G (6 nm)", 12, 256, 6.7, 30699),
+            new OrderedBrand("Oppo", "Reno 8 ", "Android 13", "Blue", "Mediatek MT6893Z Dimensity 1300 (6 nm)", 12, 256, 6.4, 16421),
+            new OrderedBrand("Oppo", "Find X6 Pro", "Android 13", "Yellow", "Snapdragon 8 Gen 2 (4 nm)", 16, 512, 6.82, 51177),
             new OrderedBrand("LG", "LG Velvet", "Android 10", "Red", "Snapdragon 765G 5G (7 nm)", 8, 128, 6.8, 15000),
             new OrderedBrand("LG", "LG V30+", "Android 7", "Blue", "Snapdragon 835 (10 nm)", 4, 128, 6.0, 12990),
             new OrderedBrand("LG", "LG G7 ThinQ", "Android 10", "Yellow", "Snapdragon 845 (10 nm)", 4, 64, 6.1, 15990),
-        };
-
-        Console.WriteLine("Good Day User! Welcome to Rhy`s Smartphone Store");
+            };
+        Console.WriteLine("Good Day User! Welcome to Rhy's Smartphone Store");
 
         bool exit = false;
+        int receiptNumber = 1;
+
         while (!exit)
         {
-            Console.WriteLine("\nPlease enter your preferred color:");
+            Console.WriteLine("\nPlease enter your preferred color (or type 'exit' to quit):");
             string color = Console.ReadLine();
+
+            if (color.Equals("exit", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine("\nThank you for visiting Rhy's Smartphone Store. Have a great day!");
+                break;
+            }
 
             Console.WriteLine("Based on your preferred color, Here`s the smartphone brands that you would like:");
             Console.WriteLine("1. Apple");
@@ -40,12 +63,13 @@ class Program
             Console.WriteLine("3. Xiaomi");
             Console.WriteLine("4. Huawei");
             Console.WriteLine("5. Realme");
-            Console.WriteLine("6. LG");
-            Console.WriteLine("7. Exit");
+            Console.WriteLine("6. Oppo");
+            Console.WriteLine("7. LG");
+            Console.WriteLine("8. Exit");
 
             int brandChoice = int.Parse(Console.ReadLine());
 
-            if (brandChoice >= 1 && brandChoice <= 6)
+            if (brandChoice >= 1 && brandChoice <= 7)
             {
                 string selectedBrand = "";
                 switch (brandChoice)
@@ -66,9 +90,11 @@ class Program
                         selectedBrand = "Realme";
                         break;
                     case 6:
+                        selectedBrand = "Oppo";
+                        break;
+                    case 7:
                         selectedBrand = "LG";
                         break;
-
                 }
 
                 Console.WriteLine($"\nHere are the available {selectedBrand} smartphones with your preferred color '{color}':");
@@ -94,7 +120,7 @@ class Program
                 }
                 else
                 {
-                    Console.WriteLine("\nPlease choose which smartphone that would satisfy your needs:");
+                    Console.WriteLine("\nPlease choose which smartphone that would satisfy you:");
                     modelChoice = int.Parse(Console.ReadLine());
                     i = 1;
                     for (int j = 0; j < smartphones.Length; j++)
@@ -120,7 +146,41 @@ class Program
                         var chosenSmartphone = smartphones[modelChoice];
                         Console.WriteLine(chosenSmartphone);
                         Console.WriteLine($"\nTotal Price for {quantity} unit(s): ₱{chosenSmartphone.GetTotalPrice(quantity)}");
-                        Console.WriteLine($"Please proceed to the counter for payment, Thank you!");
+
+
+                        Console.WriteLine("\nPlease choose a payment method:");
+                        Console.WriteLine("1. Cash");
+                        Console.WriteLine("2. GCash");
+                        Console.WriteLine("3. PayMaya");
+                        Console.WriteLine("4. Credit Card");
+                        int paymentChoice = int.Parse(Console.ReadLine());
+
+                        string paymentMethod = "";
+                        switch (paymentChoice)
+                        {
+                            case 1:
+                                paymentMethod = "Cash";
+                                break;
+                            case 2:
+                                paymentMethod = "GCash";
+                                break;
+                            case 3:
+                                paymentMethod = "PayMaya";
+                                break;
+                            case 4:
+                                paymentMethod = "Credit Card";
+                                break;
+                            default:
+                                Console.WriteLine("\nInvalid payment method choice.");
+                                continue;
+                        }
+
+                        Console.WriteLine($"Please proceed to the counter for your payment and receipt using {paymentMethod}, Thank you!");
+
+                        Receipt receipt = new Receipt(receiptNumber, paymentMethod, DateTime.Now, chosenSmartphone, quantity);
+                        DisplayReceipt(receipt);
+
+                        receiptNumber++;
                     }
                     else
                     {
